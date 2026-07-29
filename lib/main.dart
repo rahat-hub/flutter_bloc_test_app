@@ -9,7 +9,7 @@ import 'package:flutter_bloc_test_app/features/auth/login/view/login_view.dart';
 void main() {
   runApp(
     BlocProvider(
-      create: (context) => LoginCubit(),
+      create: (BuildContext context) => LoginCubit(),
       child: const MyApp(),
     )
   );
