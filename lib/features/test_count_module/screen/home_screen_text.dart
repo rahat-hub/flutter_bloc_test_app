@@ -6,8 +6,8 @@ import '../bloc/counter_bloc.dart';
 import '../bloc/counter_event.dart';
 import '../bloc/counter_state.dart';
 
-class HomeScreen extends StatelessWidget {
-  const HomeScreen({super.key});
+class HomeScreenText extends StatelessWidget {
+  const HomeScreenText({super.key});
 
   @override
   Widget build(BuildContext context) => Scaffold(
