@@ -1,9 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 // import 'package:flutter_bloc/flutter_bloc.dart';
 // import 'package:flutter_bloc_test_app/features/auth/login/cubit/login_cubit.dart';
 // import 'package:flutter_bloc_test_app/features/auth/login/view/login_view.dart';
 // import 'package:flutter_bloc_test_app/features/test_count_module/screen/home_screen_text.dart';
 import 'package:flutter_bloc_test_app/screen/login/login_screen.dart';
+
+import 'package:flutter_bloc_test_app/bloc/login/login_bloc.dart';
+
+import 'data/services/get_it_services.dart';
 
 // import 'features/test_count_module/bloc/counter_bloc.dart';
 
@@ -31,6 +36,7 @@ class MyApp extends StatelessWidget {
   }
 }*/
 void main() {
+  setupGetIt();
   runApp(const MyApp());
 }
 
@@ -39,9 +45,14 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: LoginScreen(),
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(create: (context) => LoginBloc()),
+      ],
+      child: MaterialApp(
+        debugShowCheckedModeBanner: false,
+        home: LoginScreen(),
+      ),
     );
   }
 }
