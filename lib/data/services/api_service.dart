@@ -14,7 +14,7 @@ class ApiService {
       return Future.error(e);
     }
   }
-
+ 
   /// [POST]
   Future<Response> postApi({required String url, dynamic data}) async {
     try{

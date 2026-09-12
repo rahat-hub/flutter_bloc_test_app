@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_bloc_test_app/bloc/switch_example/switch_bloc.dart';
 // import 'package:flutter_bloc/flutter_bloc.dart';
 // import 'package:flutter_bloc_test_app/features/auth/login/cubit/login_cubit.dart';
 // import 'package:flutter_bloc_test_app/features/auth/login/view/login_view.dart';
 // import 'package:flutter_bloc_test_app/features/test_count_module/screen/home_screen_text.dart';
-import 'package:flutter_bloc_test_app/screen/login/login_screen.dart';
+// import 'package:flutter_bloc_test_app/screen/login/login_screen.dart';
 
 import 'package:flutter_bloc_test_app/bloc/login/login_bloc.dart';
+import 'package:flutter_bloc_test_app/screen/switch_example/switch_example_screen.dart';
 
 import 'data/services/get_it_services.dart';
 
@@ -48,10 +50,14 @@ class MyApp extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider(create: (context) => LoginBloc()),
+        BlocProvider(create: (context) => SwitchBloc()),
       ],
-      child: MaterialApp(
-        debugShowCheckedModeBanner: false,
-        home: LoginScreen(),
+      child: BlocProvider(
+        create: (_) => SwitchBloc(),
+        child: MaterialApp(
+          debugShowCheckedModeBanner: false,
+          home: SwitchExampleScreen(),
+        ),
       ),
     );
   }
